@@ -156,7 +156,7 @@
 
         <div class="mb-4 flex gap-3">
           <button onclick="renderAdminRequests()" class="bg-indigo-600 text-white px-4 py-2 rounded-lg">Daftar Permohonan</button>
-          <button onclick="renderScheduleOverview()" class="bg-green-600 text-white px-4 py-2 rounded-lg">Overview Jadwal</button>
+          <button onclick="renderScheduleList()" class="bg-green-600 text-white px-4 py-2 rounded-lg">List Jadwal</button>
           <button onclick="resetJadwal()" class="ml-auto bg-red-600 text-white px-4 py-2 rounded-lg">Reset Jadwal</button>
         </div>
 
@@ -502,12 +502,12 @@
     }
 
     // -------------------------
-    // ADMIN: overview jadwal (lihat seluruh RuanganStatus)
+    // ADMIN: List jadwal (lihat seluruh RuanganStatus)
 // -------------------------
-// ADMIN: overview jadwal (lihat seluruh RuanganStatus)
-    function renderScheduleOverview() {
+// ADMIN: List jadwal (lihat seluruh RuanganStatus)
+    function renderScheduleList() {
       const box = document.getElementById('adminContent');
-      box.innerHTML = '<h3 class="font-semibold mb-3">Overview Jadwal (terpakai)</h3>';
+      box.innerHTML = '<h3 class="font-semibold mb-3">List Jadwal Ruangan Terpakai</h3>';
       const keys = Object.keys(RuanganStatus);
       if (keys.length === 0) {
         box.innerHTML += '<p class="text-gray-600">Belum ada jadwal terpakai.</p>';
@@ -548,7 +548,7 @@
       RuanganStatus = {};
       // Do NOT clear bookingList by request — we only reset jadwal
       saveAll();
-      renderScheduleOverview();
+      renderScheduleList();
       renderRuangan();
       alert('Semua jadwal (status ruangan) telah direset.');
     }
